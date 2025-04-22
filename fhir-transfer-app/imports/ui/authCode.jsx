@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import qs from "querystring";
 import { OAuth2 } from "oauth";
 import { useNavigate, useLocation } from "react-router-dom";
+import { AUTH_BASE_URL } from '../utils/urls.js'; 
 
 export const AuthCode = () => {
   const [accessToken, setAccessToken] = useState(null);
   const clientID = "MIE-localhost";
   const clientSecret = process.env.CLIENT_SECRET;
-  const authBaseURL = "https://ashwinvagu.webch.art";
+  const authBaseURL = AUTH_BASE_URL;
   const navigate = useNavigate();
 
 

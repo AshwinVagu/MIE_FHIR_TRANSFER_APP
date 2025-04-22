@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Card, CardActionArea, CardContent, Typography, Box, CircularProgress } from "@mui/material";
 import { Meteor } from "meteor/meteor";
 import {CLIENT_SECRET} from "../../credentials/secrets.js"; 
+import { AUTH_BASE_URL } from '../utils/urls.js'; 
 
 export const Landing = () => {
   const [clientSecret, setClientSecret] = useState(CLIENT_SECRET || "");
   const [medicalData, setMedicalData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const authBaseURL = "https://ashwinvagu.webch.art";
+  const authBaseURL = AUTH_BASE_URL;
   const clientID = "MIE-localhost";
 
   // Prompt user for client secret if not provided
