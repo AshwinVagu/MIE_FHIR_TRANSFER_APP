@@ -1,12 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
+import { AUTH_BASE_URL, POST_REQUEST_URL } from '../utils/urls.js'; 
 
 Meteor.methods({
   'ehrData.get': async function (access_token, patient_id) {
     this.unblock(); 
 
     try {
-        let url = `https://ashwinvagu.webch.art/webchart.cgi/fhir//Condition?patient=${patient_id}`;
+        let url = `${AUTH_BASE_URL}/webchart.cgi/fhir//Condition?patient=${patient_id}`;
         let queryParams = new URLSearchParams();
 
         const response = await axios.get(url, {
@@ -27,7 +28,7 @@ Meteor.methods({
     console.log("Posting FHIR data:", fhirData);
 
     try {
-        const url = `https://dcarlson.dev.webchart.app/webchart.cgi/fhir/Condition?viewMIEjson=1`;
+        const url = POST_REQUEST_URL;
 
         const response = await axios.post(url, fhirData, {
             headers: {
