@@ -27,12 +27,12 @@ Meteor.methods({
     console.log("Posting FHIR data:", fhirData);
 
     try {
-        const url = `https://dcarlson.dev.webchart.app/webchart.cgi/fhir/Patient/`;
+        const url = `https://dcarlson.dev.webchart.app/webchart.cgi/fhir/Condition?viewMIEjson=1`;
 
         const response = await axios.post(url, fhirData, {
             headers: {
-                "Content-Type": "application/fhir+json",
-                "Accept": "application/fhir+json",
+                // "Content-Type": "application/fhir+json",
+                // "Accept": "application/fhir+json",
                 "Cookie": cookie
             },
         });
